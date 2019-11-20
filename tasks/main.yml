@@ -1,0 +1,57 @@
+---
+- name: resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skip: true
+      paths:
+        - '{{ role_path }}/vars'
+- name: check for install
+  become: yes
+  stat:
+    path: '{{ dgraph_install_dir }}'
+  changed_when: False
+  register: dgraph_binary
+- when: not dgraph_binary.stat.exists
+  block:
+    - name: download
+      become: yes
+      become_user: root
+      get_url:
+        url: '{{ dgraph_url }}'
+        dest: /tmp/{{ dgraph_archive }}
+        mode: 0644
+        checksum: '{{ dgraph_checksum }}'
+    - name: mkdir
+      become: yes
+      become_user: root
+      file:
+        path: '{{ dgraph_install_dir }}'
+        mode: 0755
+        state: directory
+    - name: unarchive
+      become: yes
+      become_user: root
+      unarchive:
+        remote_src: yes
+        src: /tmp/{{ dgraph_archive }}
+        dest: '{{ dgraph_install_dir }}'
+        creates: '{{ dgraph_install_dir }}/dgraph'
+  always:
+    - name: clean up
+      become: yes
+      become_user: root
+      file:
+        path: /tmp/{{ dgraph_archive }}
+        state: absent
+- name: link
+  become: yes
+  become_user: root
+  with_items: '{{ dgraph_executables }}'
+  file:
+    src: '{{ dgraph_install_dir }}/{{ item }}'
+    dest: '{{ dgraph_parent_install_dir }}/bin/{{ item }}'
+    state: link

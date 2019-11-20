@@ -1,0 +1,24 @@
+---
+# defaults file for dgraph
+dgraph_ver: v1.1.0
+
+dgraph_os: linux
+dgraph_arch: amd64
+
+dgraph_parent_install_dir: /usr/local
+
+dgraph_mirror: https://github.com/dgraph-io/dgraph/releases/download
+
+dgraph_executables:
+  - badger
+  - dgraph
+  - dgraph-ratel
+
+dgraph_checksums:
+  v1.1.0:
+    # https://github.com/dgraph-io/dgraph/releases/download/v1.1.0/dgraph-darwin-amd64.tar.gz
+    darwin-amd64: sha256:33f6ea7449d7c26afde977e7968c8b26ad86067f234015f75a8d23f9ee9eb2fe
+    # https://github.com/dgraph-io/dgraph/releases/download/v1.1.0/dgraph-linux-amd64.tar.gz
+    linux-amd64: sha256:e40c6ed91dc12f7c27cefb1236aaa0a10811579eb02649bdea6ade3a6a06bf39
+    # https://github.com/dgraph-io/dgraph/releases/download/v1.1.0/dgraph-windows-amd64.tar.gz
+    windows-amd64: sha256:964754850367e2f458ff571dfa23e6d06d214c5ea5732c1ee3629c7cd133851f
