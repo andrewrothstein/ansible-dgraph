@@ -1,6 +1,6 @@
 ---
 # defaults file for dgraph
-dgraph_ver: v20.07.3
+dgraph_ver: v20.11.1
 
 dgraph_os: linux
 dgraph_arch: amd64
@@ -71,3 +71,10 @@ dgraph_checksums:
     linux-amd64: sha256:043222bc5cc1b1509f1de4bda387d6bfd2393ece4a9b21bd0cd9652b3140d1e8
     # https://github.com/dgraph-io/dgraph/releases/download/v20.07.3/dgraph-windows-amd64.zip
     windows-amd64: sha256:e0f611f460e43c21b341e560a02c37a38abe0b29a9e7b4e78755aea3a5d11476
+  v20.11.1:
+    # https://github.com/dgraph-io/dgraph/releases/download/v20.11.1/dgraph-darwin-amd64.tar.gz
+    darwin-amd64: sha256:1fb38ce26082fa5abff2c06276be0ecf41b0ed742a82600140146ee3492d0bd1
+    # https://github.com/dgraph-io/dgraph/releases/download/v20.11.1/dgraph-linux-amd64.tar.gz
+    linux-amd64: sha256:983c85c0fff99c412f559fa18050d615350dfa233ef420d3d82eb612a0bc3faf
+    # https://github.com/dgraph-io/dgraph/releases/download/v20.11.1/dgraph-windows-amd64.zip
+    windows-amd64: sha256:4e601b2bac3debc0b3d1c26a7ea095cb5e65fc63b6763cc499cc815b9847bfda
