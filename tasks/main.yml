@@ -9,7 +9,7 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: check for install
+- name: check for install in {{ dgraph_install_dir }}
   become: yes
   stat:
     path: '{{ dgraph_install_dir }}'
@@ -17,37 +17,37 @@
   register: dgraph_binary
 - when: not dgraph_binary.stat.exists
   block:
-    - name: download
+    - name: downloading {{ dgraph_url }} to {{ dgraph_tmp_archive }}
       become: yes
       become_user: root
       get_url:
         url: '{{ dgraph_url }}'
-        dest: /tmp/{{ dgraph_archive }}
+        dest: '{{ dgraph_tmp_archive }}'
         mode: 0644
         checksum: '{{ dgraph_checksum }}'
-    - name: mkdir
+    - name: mkdir {{ dgraph_install_dir }}
       become: yes
       become_user: root
       file:
         path: '{{ dgraph_install_dir }}'
         mode: 0755
         state: directory
-    - name: unarchive
+    - name: unarchiving {{ draph_tmp_archive }} to {{ dgraph_install_dir }}
       become: yes
       become_user: root
       unarchive:
         remote_src: yes
-        src: /tmp/{{ dgraph_archive }}
+        src: '{{ dgraph_tmp_archive }}'
         dest: '{{ dgraph_install_dir }}'
         creates: '{{ dgraph_install_dir }}/dgraph'
   always:
-    - name: clean up
+    - name: rm {{ dgraph_tmp_archive }}
       become: yes
       become_user: root
       file:
-        path: /tmp/{{ dgraph_archive }}
+        path: '{{ dgraph_tmp_archive }}'
         state: absent
-- name: link
+- name: linking executables in {{ dgraph_install_dir }} to {{ dgraph_parent_install_dir }}/bin
   become: yes
   become_user: root
   with_items: '{{ dgraph_executables }}'
