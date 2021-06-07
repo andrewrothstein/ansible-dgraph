@@ -23,9 +23,7 @@ dl()
 dl_ver() {
     local ver=$1
     printf "  %s:\n" $ver
-    dl $ver darwin amd64
     dl $ver linux amd64
-    dl $ver windows amd64 zip
 }
 
-dl_ver ${1:-v20.11.3}
+dl_ver ${1:-v21.03.0}
