@@ -12,7 +12,6 @@ dgraph_mirror: https://github.com/dgraph-io/dgraph/releases/download
 dgraph_executables:
   - badger
   - dgraph
-  - dgraph-ratel
 
 dgraph_checksums:
   v1.1.0:

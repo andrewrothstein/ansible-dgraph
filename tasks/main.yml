@@ -32,7 +32,7 @@
         path: '{{ dgraph_install_dir }}'
         mode: 0755
         state: directory
-    - name: unarchiving {{ draph_tmp_archive }} to {{ dgraph_install_dir }}
+    - name: unarchiving {{ dgraph_tmp_archive }} to {{ dgraph_install_dir }}
       become: yes
       become_user: root
       unarchive:
