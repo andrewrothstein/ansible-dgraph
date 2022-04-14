@@ -1,6 +1,6 @@
 andrewrothstein.dgraph
 =========
-[![Build Status](https://travis-ci.org/andrewrothstein/ansible-dgraph.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-dgraph)
+![Build Status](https://github.com/andrewrothstein/ansible-dgraph/actions/workflows/build.yml/badge.svg)
 
 Installs [dgraph](https://dgraph.io/).
 
