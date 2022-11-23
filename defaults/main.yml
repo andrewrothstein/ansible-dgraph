@@ -1,105 +1,23 @@
 ---
 # defaults file for dgraph
-dgraph_ver: v21.12.0
+dgraph_ver: v22.0.1
 
-dgraph_os: linux
-dgraph_arch: amd64
+dgraph_arch_map:
+  x86_64: amd64
 
 dgraph_parent_install_dir: /usr/local
 
 dgraph_mirror: https://github.com/dgraph-io/dgraph/releases/download
 
-dgraph_executables:
-  - badger
+dgraph_apps:
   - dgraph
+  - badger
 
 dgraph_checksums:
-  v1.1.0:
-    # https://github.com/dgraph-io/dgraph/releases/download/v1.1.0/dgraph-darwin-amd64.tar.gz
-    darwin-amd64: sha256:33f6ea7449d7c26afde977e7968c8b26ad86067f234015f75a8d23f9ee9eb2fe
-    # https://github.com/dgraph-io/dgraph/releases/download/v1.1.0/dgraph-linux-amd64.tar.gz
-    linux-amd64: sha256:e40c6ed91dc12f7c27cefb1236aaa0a10811579eb02649bdea6ade3a6a06bf39
-    # https://github.com/dgraph-io/dgraph/releases/download/v1.1.0/dgraph-windows-amd64.tar.gz
-    windows-amd64: sha256:964754850367e2f458ff571dfa23e6d06d214c5ea5732c1ee3629c7cd133851f
-  v1.1.1:
-    # https://github.com/dgraph-io/dgraph/releases/download/v1.1.1/dgraph-darwin-amd64.tar.gz
-    darwin-amd64: sha256:553f7fc0701d5860620512ec6e3e996aeb433c1398630ba46c7860a0bf889818
-    # https://github.com/dgraph-io/dgraph/releases/download/v1.1.1/dgraph-linux-amd64.tar.gz
-    linux-amd64: sha256:ef688c630745929a98b9171040ecef03fbffc5f05c12c8713a27b5135f035226
-    # https://github.com/dgraph-io/dgraph/releases/download/v1.1.1/dgraph-windows-amd64.tar.gz
-    windows-amd64: sha256:eb3002520d44a0671757273b8b75e25071d7514c460f9a4a28da46028c98610f
-  v1.2.5:
-    # https://github.com/dgraph-io/dgraph/releases/download/v1.2.5/dgraph-darwin-amd64.tar.gz
-    darwin-amd64: sha256:4028d64a32e6fcc9dbc81a826d9071abbb43a8e7b0661484353f763c5bb257e4
-    # https://github.com/dgraph-io/dgraph/releases/download/v1.2.5/dgraph-linux-amd64.tar.gz
-    linux-amd64: sha256:aa789237778b71dfa82f83487167d63ef3e7434d657c78a8a257110625fd3a2d
-    # https://github.com/dgraph-io/dgraph/releases/download/v1.2.5/dgraph-windows-amd64.tar.gz
-    windows-amd64: sha256:5d4bd91a98ea4565794899bb8ba4f08dc415e731a69587caf44e3597a5e8b647
-  v20.03.3:
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.03.3/dgraph-darwin-amd64.tar.gz
-    darwin-amd64: sha256:14fbb401b4e9394f5bd7ee83111863c25671e4b405f4bb6dc2df01b520d522b7
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.03.3/dgraph-linux-amd64.tar.gz
-    linux-amd64: sha256:b943779411b2d6299714070816611ded7a2acd64eb5e14e05a201cdd23c4baed
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.03.3/dgraph-windows-amd64.tar.gz
-    windows-amd64: sha256:61aa62e3086689266b0c3ad346c7c2a2c09c920d027ffcce0e80f6b3946d4fe8
-  v20.07.0:
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.07.0/dgraph-darwin-amd64.tar.gz
-    darwin-amd64: sha256:39c209609bce17de2a7a35e26ea61cc1e7193cb6b7ecfca53fe41517c8777a7d
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.07.0/dgraph-linux-amd64.tar.gz
-    linux-amd64: sha256:e6c9709592781d3de17661522adbf86751f33620e72ce17e67c36b757e5dd55a
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.07.0/dgraph-windows-amd64.tar.gz
-    windows-amd64: sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-  v20.07.1:
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.07.1/dgraph-darwin-amd64.tar.gz
-    darwin-amd64: sha256:cb7d9478dd18e886565db8f160f3371572e20c21acb4c33163d4088a1b8d07c5
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.07.1/dgraph-linux-amd64.tar.gz
-    linux-amd64: sha256:810f884a520d94421dcd287f56f05f0a2219345c6a32f137fa97ada21659fa4c
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.07.1/dgraph-windows-amd64.tar.gz
-    windows-amd64: sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-  v20.07.2:
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.07.2/dgraph-darwin-amd64.tar.gz
-    darwin-amd64: sha256:fc0e1c5d6a10bd94ad26159651ad3732669d928ea250eac98558682b0e5200ba
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.07.2/dgraph-linux-amd64.tar.gz
-    linux-amd64: sha256:6edb76731e9e82857994dac4cfee996dd05153e0cb05f874c4e1ddc806ccf477
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.07.2/dgraph-windows-amd64.tar.gz
-    windows-amd64: sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-  v20.07.3:
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.07.3/dgraph-darwin-amd64.tar.gz
-    darwin-amd64: sha256:208abea09147b5b1dbcf5007eb4b130119ac50f2b71918d89b2fd1ee006a3faa
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.07.3/dgraph-linux-amd64.tar.gz
-    linux-amd64: sha256:043222bc5cc1b1509f1de4bda387d6bfd2393ece4a9b21bd0cd9652b3140d1e8
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.07.3/dgraph-windows-amd64.zip
-    windows-amd64: sha256:e0f611f460e43c21b341e560a02c37a38abe0b29a9e7b4e78755aea3a5d11476
-  v20.11.1:
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.11.1/dgraph-darwin-amd64.tar.gz
-    darwin-amd64: sha256:1fb38ce26082fa5abff2c06276be0ecf41b0ed742a82600140146ee3492d0bd1
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.11.1/dgraph-linux-amd64.tar.gz
-    linux-amd64: sha256:983c85c0fff99c412f559fa18050d615350dfa233ef420d3d82eb612a0bc3faf
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.11.1/dgraph-windows-amd64.zip
-    windows-amd64: sha256:4e601b2bac3debc0b3d1c26a7ea095cb5e65fc63b6763cc499cc815b9847bfda
-  v20.11.2:
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.11.2/dgraph-darwin-amd64.tar.gz
-    darwin-amd64: sha256:acd11767be0ea54e410704c532bf0d7ea8324cfd2010eb862f9d3f909cbd07a1
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.11.2/dgraph-linux-amd64.tar.gz
-    linux-amd64: sha256:e67390524f44dd1c09f45ea1da98c80c32cc9b16a2f411e36a9849b1e88820cf
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.11.2/dgraph-windows-amd64.zip
-    windows-amd64: sha256:629c5c593ab3b932c6187506458585acbe805b4825ca198268fb9c43c343ddf2
-  v20.11.3:
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.11.3/dgraph-darwin-amd64.tar.gz
-    darwin-amd64: sha256:65071e19cda86dee3e7fa91c52f2cca32b90d62259d2c1ec3add7b6eac917803
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.11.3/dgraph-linux-amd64.tar.gz
-    linux-amd64: sha256:219501ab5f2af863d12bc55f3860fa12df2127a07ac8eaf998ca646fc720d94e
-    # https://github.com/dgraph-io/dgraph/releases/download/v20.11.3/dgraph-windows-amd64.zip
-    windows-amd64: sha256:9835d7a57feceb86d179c273e95c186998376e3d89fc2623cbaece8d85555d69
-  v21.03.0:
-    # https://github.com/dgraph-io/dgraph/releases/download/v21.03.0/dgraph-linux-amd64.tar.gz
-    linux-amd64: sha256:a907703c1fadd3baacbf838a9328ee5d8f112f4523ddab45ddfbaf39c1eca599
-  v21.03.1:
-    # https://github.com/dgraph-io/dgraph/releases/download/v21.03.1/dgraph-linux-amd64.tar.gz
-    linux-amd64: sha256:49da6d8fbf22276690926581caf046810764524f9c14840a161729f69b578e4a
-  v21.03.2:
-    # https://github.com/dgraph-io/dgraph/releases/download/v21.03.2/dgraph-linux-amd64.tar.gz
-    linux-amd64: sha256:086f8c64f71658be220d29638d295b8f40ee471b34a92ab0744d36c183472eb4
-  v21.12.0:
-    # https://github.com/dgraph-io/dgraph/releases/download/v21.12.0/dgraph-linux-amd64.tar.gz
-    linux-amd64: sha256:a8dc7f77ea89843f34d9466d212cadeb4a6f581e72c5d757e19f653e4863f8ef
+  v22.0.1:
+    dgraph:
+      # https://github.com/dgraph-io/dgraph/releases/download/v22.0.1/dgraph-linux-amd64.tar.gz
+      linux-amd64: sha256:4ab1293f4b19017449164349b65c2539f926670fa59ea6f73bd833efb57087ad
+    badger:
+      # https://github.com/dgraph-io/dgraph/releases/download/v22.0.1/badger-linux-amd64.tar.gz
+      linux-amd64: sha256:d0d96c239406c81533f131683cbf8da6f7124461b47787908aa1c0c4662ab7d8

@@ -1,0 +1,8 @@
+---
+dgraph_archive: '{{ dgraph_app }}-{{ dgraph_platform }}.tar.gz'
+dgraph_tmp_archive: /tmp/{{ dgraph_archive }}
+dgraph_url: '{{ dgraph_mirror }}/{{ dgraph_ver }}/{{ dgraph_archive }}'
+dgraph_checksum: '{{ dgraph_checksums[dgraph_ver][dgraph_app][dgraph_platform] }}'
+dgraph_install_dir: '{{ dgraph_parent_install_dir }}/dgraph-{{ dgraph_ver }}'
+dgraph_install_exe: '{{ dgraph_install_dir }}/{{ dgraph_app }}'
+dgraph_link: '{{ dgraph_parent_install_dir }}/bin/{{ dgraph_app }}'

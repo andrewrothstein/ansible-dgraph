@@ -1,9 +1,5 @@
 ---
 # vars file for dgraph
+dgraph_os: '{{ ansible_system | lower }}'
+dgraph_arch: '{{ dgraph_arch_map[ansible_architecture] }}'
 dgraph_platform: '{{ dgraph_os }}-{{ dgraph_arch }}'
-dgraph_archive: dgraph-{{ dgraph_platform }}.tar.gz
-dgraph_tmp_archive: /tmp/{{ dgraph_archive }}
-dgraph_url: '{{ dgraph_mirror }}/{{ dgraph_ver }}/{{ dgraph_archive }}'
-dgraph_checksum: '{{ dgraph_checksums[dgraph_ver][dgraph_platform] }}'
-
-dgraph_install_dir: '{{ dgraph_parent_install_dir }}/dgraph-{{ dgraph_ver }}'
