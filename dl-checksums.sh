@@ -30,4 +30,4 @@ dl_ver() {
     dl $ver badger linux amd64
 }
 
-dl_ver ${1:-v22.0.1}
+dl_ver ${1:-v23.0.0}

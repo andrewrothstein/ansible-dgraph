@@ -1,6 +1,6 @@
 ---
 # defaults file for dgraph
-dgraph_ver: v22.0.1
+dgraph_ver: v23.0.0
 
 dgraph_arch_map:
   x86_64: amd64
@@ -21,3 +21,10 @@ dgraph_checksums:
     badger:
       # https://github.com/dgraph-io/dgraph/releases/download/v22.0.1/badger-linux-amd64.tar.gz
       linux-amd64: sha256:d0d96c239406c81533f131683cbf8da6f7124461b47787908aa1c0c4662ab7d8
+  v23.0.0:
+    dgraph:
+      # https://github.com/dgraph-io/dgraph/releases/download/v23.0.0/dgraph-linux-amd64.tar.gz
+      linux-amd64: sha256:19d2e31ed3cf2c727977927d7e5742d50545ca4ece788152b5cacff77b6e9777
+    badger:
+      # https://github.com/dgraph-io/dgraph/releases/download/v23.0.0/badger-linux-amd64.tar.gz
+      linux-amd64: sha256:28476450da57e4f4a4fb6925ea3ffd7e1728bc32d4bace4b957cbee60a306e28
