@@ -1,8 +1,6 @@
 ---
-- include_role:
-    name: andrewrothstein.unarchive-deps
-- name: resolve platform specific vars
-  include_vars: '{{ item }}'
+- name: Resolve platform specific vars
+  ansible.builtin.include_vars: '{{ item }}'
   with_first_found:
     - files:
         - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
@@ -11,7 +9,8 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- loop: '{{ dgraph_apps | default([]) }}'
+- name: Installing apps
+  loop: '{{ dgraph_apps | default([]) }}'
   loop_control:
     loop_var: dgraph_app
-  include_tasks: app-install.yml
+  ansible.builtin.include_tasks: app-install.yml

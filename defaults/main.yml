@@ -1,8 +1,9 @@
 ---
 # defaults file for dgraph
-dgraph_ver: v23.0.0
+dgraph_ver: v24.0.0
 
 dgraph_arch_map:
+  aarch64: arm64
   x86_64: amd64
 
 dgraph_parent_install_dir: /usr/local
@@ -10,8 +11,9 @@ dgraph_parent_install_dir: /usr/local
 dgraph_mirror: https://github.com/dgraph-io/dgraph/releases/download
 
 dgraph_apps:
-  - dgraph
-  - badger
+  - n: dgraph
+  - n: badger
+    platform_suffix: true
 
 dgraph_checksums:
   v22.0.1:
@@ -28,3 +30,14 @@ dgraph_checksums:
     badger:
       # https://github.com/dgraph-io/dgraph/releases/download/v23.0.0/badger-linux-amd64.tar.gz
       linux-amd64: sha256:28476450da57e4f4a4fb6925ea3ffd7e1728bc32d4bace4b957cbee60a306e28
+  v24.0.0:
+    dgraph:
+      # https://github.com/dgraph-io/dgraph/releases/download/v24.0.0/dgraph-linux-amd64.tar.gz
+      linux-amd64: sha256:a784dcc9ff7aea9c78e13baf3b6ca50fea967175322783cba28651c09becd49d
+      # https://github.com/dgraph-io/dgraph/releases/download/v24.0.0/dgraph-linux-arm64.tar.gz
+      linux-arm64: sha256:27126eadda2f6551fb042872f322fe24566abcd9fff2915cfa4f4019d2bb53fd
+    badger:
+      # https://github.com/dgraph-io/dgraph/releases/download/v24.0.0/badger-linux-amd64.tar.gz
+      linux-amd64: sha256:a50101d04f47153139ea5e2a09e7c4c243c37d9137dead20034dd77f8c74b88c
+      # https://github.com/dgraph-io/dgraph/releases/download/v24.0.0/badger-linux-arm64.tar.gz
+      linux-arm64: sha256:49cc297c0b85fded4cb3f29df02d18aaedd2bc95bf750817f1a88401e6b46838

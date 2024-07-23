@@ -1,49 +1,53 @@
 ---
-- name: resolving vars for {{ dgraph_app }}
-  include_vars:
+- name: Resolving vars for {{ dgraph_app.n }}
+  ansible.builtin.include_vars:
     file: app-vars.yml
-- name: check for install in {{ dgraph_install_exe }}
+- name: Check for install in {{ dgraph_install_exe }}
   become: true
-  stat:
+  ansible.builtin.stat:
     path: '{{ dgraph_install_exe }}'
   changed_when: false
   register: dgraph_binary
-- when: not dgraph_binary.stat.exists
+- name: Downloading and installing {{ dgraph_app.n }}
+  when: not dgraph_binary.stat.exists
   block:
-    - name: downloading {{ dgraph_url }} to {{ dgraph_tmp_archive }}
+    - name: Downloading {{ dgraph_url }} to {{ dgraph_tmp_archive }}
       become: true
       become_user: root
-      get_url:
+      ansible.builtin.get_url:
         url: '{{ dgraph_url }}'
         dest: '{{ dgraph_tmp_archive }}'
-        mode: 0644
+        mode: '644'
         checksum: '{{ dgraph_checksum }}'
-    - name: mkdir {{ dgraph_install_dir }}
+    - name: Mkdir {{ dgraph_install_dir }}
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ dgraph_install_dir }}'
-        mode: 0755
+        mode: '755'
         state: directory
-    - name: unarchiving {{ dgraph_tmp_archive }} to {{ dgraph_install_dir }}
+    - name: Installing andrewrothstein.unarchivedepos
+      ansible.builtin.include_role:
+        name: andrewrothstein.unarchivedeps
+    - name: Unarchiving {{ dgraph_tmp_archive }} to {{ dgraph_install_dir }}
       become: true
       become_user: root
-      unarchive:
+      ansible.builtin.unarchive:
         remote_src: true
         src: '{{ dgraph_tmp_archive }}'
         dest: '{{ dgraph_install_dir }}'
-        creates: '{{ dgraph_install_dir }}/{{ dgraph_app }}'
+        creates: '{{ dgraph_install_exe }}'
   always:
-    - name: rm {{ dgraph_tmp_archive }}
+    - name: Rm {{ dgraph_tmp_archive }}
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ dgraph_tmp_archive }}'
         state: absent
-- name: linking {{ dgraph_link }} to {{ dgraph_install_exe }}
+- name: Linking {{ dgraph_link }} to {{ dgraph_install_exe }}
   become: true
   become_user: root
-  file:
+  ansible.builtin.file:
     src: '{{ dgraph_install_exe }}'
     dest: '{{ dgraph_link }}'
     state: link

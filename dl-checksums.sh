@@ -26,8 +26,10 @@ dl_ver() {
     printf "  %s:\n" $ver
     printf "    dgraph:\n"
     dl $ver dgraph linux amd64
+    dl $ver dgraph linux arm64
     printf "    badger:\n"
     dl $ver badger linux amd64
+    dl $ver badger linux arm64
 }
 
-dl_ver ${1:-v23.0.0}
+dl_ver ${1:-v24.0.0}
